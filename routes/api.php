@@ -9,7 +9,7 @@ use App\Http\Controllers\API\CouponCodeAPIController;
 use App\Http\Controllers\API\CurrencyAPIController;
 use App\Http\Controllers\API\CustomerAPIController;
 use App\Http\Controllers\API\DashboardAPIController;
-use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\API\EmployeeController;
 use App\Http\Controllers\API\ExpenseAPIController;
 use App\Http\Controllers\API\ExpenseCategoryAPIController;
 use App\Http\Controllers\API\HoldAPIController;
