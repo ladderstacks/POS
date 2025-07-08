@@ -152,8 +152,6 @@ class SaleReturnRepository extends BaseRepository
                 $client = new \GuzzleHttp\Client();
 
                 $url = SmsSetting::where('key', 'url')->value('value');
-                //                $token = SmsSetting::where('key', 'token')->value('value');
-                //            $url = "https://xrjv8e.api.infobip.com/sms/2/text/advanced";
 
                 $data = SmsSetting::where('key', 'payload')->value('value');
 

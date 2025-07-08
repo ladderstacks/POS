@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { Tokens } from "../../constants";
 
 const ReactDatePicker = (props) => {
-    const { onChangeDate, newStartDate, readOnlyref } = props;
+    const { onChangeDate, newStartDate, readOnlyref, selected, placeholder } = props;
     const [startDate, setStartDate] = useState(new Date());
     const [language, setLanguage] = useState(enGB);
     const [languageCode, setLanguageCode] = useState("enGB");
@@ -94,16 +94,17 @@ const ReactDatePicker = (props) => {
                 className="datepicker__custom-datepicker px-4"
                 name="date"
                 selected={
-                    newStartDate === null
+                    selected === '' || selected ? selected : (newStartDate === null
                         ? new Date()
                         : newStartDate
                         ? newStartDate
-                        : startDate
+                        : startDate)
                 }
                 dateFormat={format(allConfigData)}
                 onChange={(date) => handleCallback(date)}
                 maxDate={new Date()}
                 ref={(el) => onDatepickerRef(el, readOnlyref)}
+                placeholderText={placeholder ?? ''}
             />
             <FontAwesomeIcon icon={faCalendarAlt} className="input-icon" />
         </div>

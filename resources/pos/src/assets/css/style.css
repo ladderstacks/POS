@@ -2691,7 +2691,7 @@ progress {
 .form-text {
   margin-top: 0.25rem;
   font-size: 0.875em;
-  color: #6C757D;
+  color: #141415;
 }
 
 .form-control {
@@ -2701,7 +2701,7 @@ progress {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #6C757D;
+  color: #141415;
   background-color: #FFFFFF;
   background-clip: padding-box;
   border: 1px solid #CED4DA;
@@ -2721,7 +2721,7 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #6C757D;
+  color: #141415;
   background-color: #FFFFFF;
   border-color: none;
   outline: 0;
@@ -6018,6 +6018,8 @@ textarea.form-control-lg {
   border: 0 solid rgba(6, 9, 23, 0.2);
   border-radius: 0.625rem;
   outline: 0;
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .modal-backdrop {

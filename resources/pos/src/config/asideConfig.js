@@ -31,6 +31,7 @@ import {
     faLanguage,
     faShieldHalved,
     faLayerGroup,
+    faBank
 } from "@fortawesome/free-solid-svg-icons";
 import { getFormattedMessage } from "../shared/sharedMethod";
 
@@ -303,6 +304,89 @@ export default [
                 class: "d-flex",
                 permission: Permissions.MANAGE_USER,
             },
+        ],
+    },
+    {
+        title: "bank-accounts.title",
+        name: "BankAccount",
+        fontIcon: <FontAwesomeIcon icon={faBank} />,
+        to: "/app/bank-accounts",
+        class: "d-flex",
+        permission: Permissions.MANAGE_BANK_ACCOUNT,
+        items: [
+            {
+                title: getFormattedMessage("bank-accounts.title"),
+                to: "/app/bank-accounts",
+            },
+        ],
+    },
+    {
+        title: "employee.manage-title",
+        name: "Employee",
+        fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+        to: "/app/employee",
+        class: "d-flex",
+        is_submenu: "true",
+        subPath: {
+            employeeSubPath: "/app/employee",
+            payrollSubPath: "/app/payroll-compensation",
+            attendanceSubPath: "/app/attendance",
+            leavesSubPath: "/app/leaves",
+            educationSubPath: "/app/education",
+            experiencesSubPath: "/app/experiences",
+        },
+        permission:
+            Permissions.MANAGE_EMPLOYEE,
+        subMenu: [
+            {
+                title: "employee.title",
+                name: "Employee",
+                fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+                to: "/app/employee",
+                class: "d-flex",
+                permission: Permissions.MANAGE_EMPLOYEE,
+            },
+            {
+                title: "payroll.title",
+                name: "payrolls",
+                fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+                to: "/app/payroll-compensation",
+                class: "d-flex",
+                permission: Permissions.MANAGE_EMPLOYEE,
+            },
+            // {
+            //     title: "attendance.title",
+            //     name: "attendances",
+            //     fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+            //     to: "/app/attendance",
+            //     class: "d-flex",
+            //     permission: Permissions.MANAGE_EMPLOYEE,
+            // },
+            // {
+            //     title: "leaves.title",
+            //     name: "leaves",
+            //     fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+            //     to: "/app/leaves",
+            //     class: "d-flex",
+            //     permission: Permissions.MANAGE_EMPLOYEE,
+            // },
+            // {
+            //     title: "education.title",
+            //     name: "education",
+            //     fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+            //     to: "/app/education",
+            //     class: "d-flex",
+            //     permission: Permissions.MANAGE_EMPLOYEE,
+            // },
+            // {
+            //     title: "experiences.title",
+            //     name: "experiences",
+            //     fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+            //     to: "/app/experiences",
+            //     class: "d-flex",
+            //     permission: Permissions.MANAGE_EMPLOYEE,
+            // },
+
         ],
     },
     {

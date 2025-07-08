@@ -2,18 +2,21 @@
 
 use App\Http\Controllers\API\AdjustmentAPIController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\BankAccountController;
 use App\Http\Controllers\API\BaseUnitAPIController;
 use App\Http\Controllers\API\BrandAPIController;
 use App\Http\Controllers\API\CouponCodeAPIController;
 use App\Http\Controllers\API\CurrencyAPIController;
 use App\Http\Controllers\API\CustomerAPIController;
 use App\Http\Controllers\API\DashboardAPIController;
+use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\API\ExpenseAPIController;
 use App\Http\Controllers\API\ExpenseCategoryAPIController;
 use App\Http\Controllers\API\HoldAPIController;
 use App\Http\Controllers\API\LanguageAPIController;
 use App\Http\Controllers\API\MainProductAPIController;
 use App\Http\Controllers\API\ManageStockAPIController;
+use App\Http\Controllers\API\PayrollController;
 use App\Http\Controllers\API\PermissionController;
 use App\Http\Controllers\API\POSRegisterAPIController;
 use App\Http\Controllers\API\ProductAPIController;
@@ -402,6 +405,32 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Coupon Code Routes
     Route::resource('coupon-codes', CouponCodeAPIController::class);
+    // Bank accounts
+    Route::get('bank-accounts', [BankAccountController::class, 'index']);
+    Route::get('bank-account/excel', [BankAccountController::class, 'excel']);
+    Route::post('bank-accounts', [BankAccountController::class, 'store']);
+    Route::get('bank-accounts/form_data', [BankAccountController::class, 'form_data']);
+    Route::get('bank-accounts/{id}', [BankAccountController::class, 'show'])->name('bank-accounts.show');
+    Route::post('bank-accounts/{id}', [BankAccountController::class, 'update']);
+    Route::delete('bank-accounts/{id}', [BankAccountController::class, 'destroy']);
+
+    // Employee
+    Route::get('employee', [EmployeeController::class, 'index']);
+    Route::get('employee/excel', [EmployeeController::class, 'excel']);
+    Route::post('employee', [EmployeeController::class, 'store']);
+    Route::get('employee/form_data/{id?}', [EmployeeController::class, 'form_data']);
+    Route::get('employee/{id}', [EmployeeController::class, 'show'])->name('employee.show');
+    Route::post('employee/{id}', [EmployeeController::class, 'update']);
+    Route::delete('employee/{id}', [EmployeeController::class, 'destroy']);
+
+    // Payroll & Compansation
+    Route::get('payrolls', [PayrollController::class, 'index']);
+    Route::get('payroll/excel', [PayrollController::class, 'excel']);
+    Route::post('payrolls', [PayrollController::class, 'store']);
+    Route::get('payrolls/form_data', [PayrollController::class, 'form_data']);
+    Route::get('payrolls/{id}', [PayrollController::class, 'show'])->name('payroll.show');
+    Route::post('payrolls/{id}', [PayrollController::class, 'update']);
+    Route::delete('payrolls/{id}', [PayrollController::class, 'destroy']);
 });
 
 Route::post('login', [AuthController::class, 'login'])->name('login');

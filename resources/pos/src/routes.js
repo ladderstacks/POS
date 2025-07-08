@@ -88,6 +88,10 @@ import BaseUnits from "./components/base-unit/BaseUnits";
 import RegisterReport from "./components/report/registerReport/RegisterReport";
 import Variation from "./components/variation/Variation";
 import BankAccounts from "./components/bank-account/BankAccounts";
+import Employee from "./components/employee/Employee";
+import CreateEmployee from "./components/employee/CreateEmployee";
+import EditEmployee from "./components/employee/EditEmployee";
+import Payrolls from "./components/payroll/Payrolls";
 
 export const route = [
     {
@@ -541,4 +545,49 @@ export const route = [
         ele: <BankAccounts />,
         permission: Permissions.MANAGE_BANK_ACCOUNT,
     },
+    {
+        path: "employee",
+        ele: <Employee />,
+        permission: Permissions.MANAGE_EMPLOYEE,
+    },
+    {
+        path: "employee/create",
+        ele: <CreateEmployee />,
+        permission: Permissions.MANAGE_EMPLOYEE,
+    },
+    {
+        path: "employee/edit/:id",
+        ele: <EditEmployee />,
+        permission: Permissions.MANAGE_EMPLOYEE,
+    },
+    {
+        path: "payroll-compensation",
+        ele: <Payrolls />,
+        permission: Permissions.MANAGE_EMPLOYEE,
+    },
+    // {
+    //     path: "department",
+    //     ele: <Department />,
+    //     permission: Permissions.MANAGE_EMPLOYEE,
+    // },
+    // {
+    //     path: "attendance",
+    //     ele: <Employee />,
+    //     permission: Permissions.MANAGE_EMPLOYEE,
+    // },
+    // {
+    //     path: "leaves",
+    //     ele: <Employee />,
+    //     permission: Permissions.MANAGE_EMPLOYEE,
+    // },
+    // {
+    //     path: "education",
+    //     ele: <Employee />,
+    //     permission: Permissions.MANAGE_EMPLOYEE,
+    // },
+    // {
+    //     path: "experiences",
+    //     ele: <Employee />,
+    //     permission: Permissions.MANAGE_EMPLOYEE,
+    // },
 ];

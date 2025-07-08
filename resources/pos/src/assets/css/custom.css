@@ -1083,9 +1083,13 @@ div .rdt_Pagination {
   padding-right: 0 !important;
   margin-top: 30px;
   min-height: 0 !important;
-  background-color: #EFF3F7 !important;
+  background-color: #1D1D1D !important;
   font-size: 1rem !important;
 }
+.rdt_Pagination span {
+  color: white;
+}
+
 div .rdt_Pagination div:nth-child(4) {
   margin-left: auto !important;
 }
@@ -2310,6 +2314,7 @@ div .rdt_Pagination div:first-of-type svg {
   border: none;
   font-size: 23px;
   background: none;
+  color: white;
 }
 
 .object-fit-contain {

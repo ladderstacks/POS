@@ -23,7 +23,6 @@ function AdminApp(props) {
                 filterRoutes.push(route);
             }
         });
-        console.log({route, filterRoutes});
         return filterRoutes;
     };
 

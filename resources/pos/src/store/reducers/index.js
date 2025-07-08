@@ -98,6 +98,14 @@ import baseUnitReducer from "./baseUnitReducer";
 import posCloseRegisterDetailsReducer from './pos/posCloseRegisterDetailsReducer';
 import posRegisterReportDetailsReducer from './pos/posRegisterReportDetailsReducer';
 import variationReducer from './variationReducer';
+import bankAccountsReducers from './bankAccountsReducers';
+import bankAccountCurrenciesReducer from './bankAccountCurrenciesReducer';
+import bankAccountCountriesReducer from './bankAccountCountriesReducer';
+import employeeReducers from './employeeReducers';
+import employeesFormDataReducer from './employeeFromdataReducer';
+import payrollReducers from './payrollReducers';
+import payrollEmployeesReducer from './payrollEmployeesReducer';
+import payrollBankAccountsReducer from './payrollBankAccountsReducer';
 
 export default combineReducers( {
     loginUser: loginReducers,
@@ -198,5 +206,13 @@ export default combineReducers( {
     baseUnits: baseUnitsReducres,
     base: baseUnitReducer,
     closeRegisterDetails: posCloseRegisterDetailsReducer,
-    registerReportDetails: posRegisterReportDetailsReducer
+    registerReportDetails: posRegisterReportDetailsReducer,
+    bankAccounts: bankAccountsReducers,
+    bankAccountCurrencies: bankAccountCurrenciesReducer,
+    bankAccountCountries: bankAccountCountriesReducer,
+    employees: employeeReducers,
+    employeesFormData: employeesFormDataReducer,
+    payrolls: payrollReducers,
+    payrollEmployees: payrollEmployeesReducer,
+    payrollBankAccounts: payrollBankAccountsReducer,
 } );
