@@ -51,7 +51,7 @@ const TodaySalePurchaseCount = (props) => {
                         title={getFormattedMessage("sales.title")}
                         onClick={() => onClick("app/sales", "manage_sale")}
                         allConfigData={allConfigData}
-                        className={`bg-primary ${
+                        className={`border border-dark bg-dark ${
                             config &&
                             config.filter((item) => item === "manage_sale")
                                 .length !== 0
@@ -62,7 +62,7 @@ const TodaySalePurchaseCount = (props) => {
                         icon={
                             <FontAwesomeIcon
                                 icon={faShoppingCart}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -84,7 +84,7 @@ const TodaySalePurchaseCount = (props) => {
                         onClick={() =>
                             onClick("app/purchases", "manage_purchase")
                         }
-                        className={`bg-success ${
+                        className={`border border-dark bg-dark ${
                             config &&
                             config.filter((item) => item === "manage_purchase")
                                 .length !== 0
@@ -95,7 +95,7 @@ const TodaySalePurchaseCount = (props) => {
                         icon={
                             <FontAwesomeIcon
                                 icon={faCartPlus}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -117,7 +117,7 @@ const TodaySalePurchaseCount = (props) => {
                         onClick={() =>
                             onClick("app/sale-return", "manage_sale_return")
                         }
-                        className={`bg-info ${
+                        className={`border border-dark bg-dark ${
                             config &&
                             config.filter(
                                 (item) => item === "manage_sale_return"
@@ -129,7 +129,7 @@ const TodaySalePurchaseCount = (props) => {
                         icon={
                             <FontAwesomeIcon
                                 icon={faArrowRight}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -154,7 +154,7 @@ const TodaySalePurchaseCount = (props) => {
                                 "manage_purchase_return"
                             )
                         }
-                        className={`bg-warning ${
+                        className={`border border-dark bg-dark ${
                             config &&
                             config.filter(
                                 (item) => item === "manage_purchase_return"
@@ -166,7 +166,7 @@ const TodaySalePurchaseCount = (props) => {
                         icon={
                             <FontAwesomeIcon
                                 icon={faArrowLeft}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -188,12 +188,12 @@ const TodaySalePurchaseCount = (props) => {
                         )}
                         allConfigData={allConfigData}
                         onClick={() => onClick("app/sales", "manage_sale")}
-                        className="widget-bg-purple  cursor-pointer"
+                        className="border border-dark bg-dark  cursor-pointer"
                         iconClass="bg-purple-700"
                         icon={
                             <FontAwesomeIcon
                                 icon={faDollar}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -213,12 +213,12 @@ const TodaySalePurchaseCount = (props) => {
                         )}
                         allConfigData={allConfigData}
                         onClick={() => onClick("app/sales", "manage_sale")}
-                        className="widget-bg-pink cursor-pointer"
+                        className="border border-dark bg-dark cursor-pointer"
                         iconClass="bg-pink-700"
                         icon={
                             <FontAwesomeIcon
                                 icon={faMoneyBill}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -242,12 +242,12 @@ const TodaySalePurchaseCount = (props) => {
                         onClick={() =>
                             onClick("app/purchases", "manage_purchase")
                         }
-                        className="widget-bg-blue cursor-pointer"
+                        className="border border-dark bg-dark cursor-pointer"
                         iconClass="widget-bg-blue-700 "
                         icon={
                             <FontAwesomeIcon
                                 icon={faCartPlus}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={
@@ -271,12 +271,12 @@ const TodaySalePurchaseCount = (props) => {
                         onClick={() =>
                             onClick("app/expenses", "manage_expenses")
                         }
-                        className="widget-bg-red cursor-pointer"
+                        className="border border-dark bg-dark cursor-pointer"
                         iconClass="bg-red-300"
                         icon={
                             <FontAwesomeIcon
                                 icon={faSquareMinus}
-                                className="fs-1-xl text-white"
+                                className="fs-1-xl text-dark"
                             />
                         }
                         currency={

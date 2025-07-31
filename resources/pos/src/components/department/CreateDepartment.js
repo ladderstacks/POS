@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect, useDispatch} from 'react-redux';
 import {Button} from 'react-bootstrap-v5';
-import {addDepartment} from '../../store/action/bankAccountActions';
+import {addDepartment} from '../../store/action/departmentActions';
 import {getFormattedMessage} from '../../shared/sharedMethod';
 import DepartmentForm from './DepartmentForm';
 import { Filters } from '../../constants';

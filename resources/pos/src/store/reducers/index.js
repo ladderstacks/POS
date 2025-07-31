@@ -106,6 +106,9 @@ import employeesFormDataReducer from './employeeFromdataReducer';
 import payrollReducers from './payrollReducers';
 import payrollEmployeesReducer from './payrollEmployeesReducer';
 import payrollBankAccountsReducer from './payrollBankAccountsReducer';
+import departmentReducers from './departmentReducers';
+import attendanceFormDataReducers from './attendanceFormDataReducers';
+import attendanceReducers from './attendanceReducers';
 
 export default combineReducers( {
     loginUser: loginReducers,
@@ -215,4 +218,7 @@ export default combineReducers( {
     payrolls: payrollReducers,
     payrollEmployees: payrollEmployeesReducer,
     payrollBankAccounts: payrollBankAccountsReducer,
+    departments: departmentReducers,
+    attendanceFormData: attendanceFormDataReducers,
+    attendances: attendanceReducers,
 } );

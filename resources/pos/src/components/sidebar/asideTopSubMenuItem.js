@@ -20,7 +20,7 @@ const AsideTopSubMenuItem = (props) => {
             } navbar-light d-xl-flex align-items-stretch d-block px-3 px-xl-0 py-4 py-xl-0`}
         >
             <div className="navbar-collapse">
-                <Dropdown className="d-flex align-items-stretch me-3 report_dropdown">
+                {/* <Dropdown className="d-flex align-items-stretch me-3 report_dropdown">
                     <Dropdown.Toggle
                         className="hide-arrow bg-transparent border-0 p-0 d-flex align-items-center"
                         id="dropdown-basic"
@@ -126,7 +126,7 @@ const AsideTopSubMenuItem = (props) => {
                             </Dropdown.Item>
                         )}
                     </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
                 <div className="navbar-nav me-auto mb-2 mb-lg-0">
                     {location.pathname === "/app/profile/edit" ? (
                         <div className="nav-item position-relative mx-xl-3 mb-3 mb-xl-0">

@@ -1,18 +1,18 @@
 import {connect} from 'react-redux';
-import {fetchPayroll} from '../../store/action/payrollActions';
+import {fetchDepartment} from '../../store/action/departmentActions';
 import {getFormattedMessage} from '../../shared/sharedMethod';
-import PayrollForm from './PayrollForm';
+import DepartmentForm from './DepartmentForm';
 
-const EditPayroll = (props) => {
-    const {handleClose, show, payroll} = props;
+const EditDepartment = (props) => {
+    const {handleClose, show, department} = props;
 
     return (
         <>
-            {payroll && <PayrollForm handleClose={handleClose} show={show} singlePayroll={payroll}
-                                  title={getFormattedMessage('payroll.edit.title')}/>}
+            {department && <DepartmentForm handleClose={handleClose} show={show} singleDepartment={department}
+                                  title={getFormattedMessage('department.edit.title')}/>}
         </>
     )
 };
 
-export default connect(null, {fetchPayroll})(EditPayroll);
+export default connect(null, {fetchDepartment})(EditDepartment);
 

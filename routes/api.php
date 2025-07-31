@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AdjustmentAPIController;
+use App\Http\Controllers\API\AttendanceController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BankAccountController;
 use App\Http\Controllers\API\BaseUnitAPIController;
@@ -38,6 +39,7 @@ use App\Http\Controllers\API\UnitAPIController;
 use App\Http\Controllers\API\UserAPIController;
 use App\Http\Controllers\API\WarehouseAPIController;
 use App\Http\Controllers\API\VariationAPIController;
+use App\Http\Controllers\API\DepartmentController;
 use App\Http\Controllers\MailTemplateAPIController;
 use Illuminate\Support\Facades\Route;
 
@@ -431,6 +433,23 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('payrolls/{id}', [PayrollController::class, 'show'])->name('payroll.show');
     Route::post('payrolls/{id}', [PayrollController::class, 'update']);
     Route::delete('payrolls/{id}', [PayrollController::class, 'destroy']);
+
+    // Departments
+    Route::get('departments', [DepartmentController::class, 'index']);
+    Route::get('department/excel', [DepartmentController::class, 'excel']);
+    Route::post('departments', [DepartmentController::class, 'store']);
+    Route::get('departments/{id}', [DepartmentController::class, 'show'])->name('departments.show');
+    Route::post('departments/{id}', [DepartmentController::class, 'update']);
+    Route::delete('departments/{id}', [DepartmentController::class, 'destroy']);
+
+    // Attendances
+    Route::get('attendances', [AttendanceController::class, 'index']);
+    Route::get('attendance/excel', [AttendanceController::class, 'excel']);
+    Route::post('attendances', [AttendanceController::class, 'store']);
+    Route::get('attendances/form_data', [AttendanceController::class, 'form_data']);
+    Route::get('attendances/{id}', [AttendanceController::class, 'show'])->name('attendances.show');
+    Route::post('attendances/{id}', [AttendanceController::class, 'update']);
+    Route::delete('attendances/{id}', [AttendanceController::class, 'destroy']);
 });
 
 Route::post('login', [AuthController::class, 'login'])->name('login');

@@ -61,7 +61,7 @@ const MasterLayout = (props) => {
                     <div className="container-fluid d-flex align-items-stretch justify-content-xxl-between flex-grow-1">
                         <button
                             type="button"
-                            className="btn d-flex align-items-center d-xl-none px-0"
+                            className="btn d-flex align-items-center d-xl-none px-0 text-light"
                             title="Show aside menu"
                             onClick={menuClick}
                         >

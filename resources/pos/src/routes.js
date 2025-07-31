@@ -92,6 +92,8 @@ import Employee from "./components/employee/Employee";
 import CreateEmployee from "./components/employee/CreateEmployee";
 import EditEmployee from "./components/employee/EditEmployee";
 import Payrolls from "./components/payroll/Payrolls";
+import Department from "./components/department/Department";
+import Attendance from "./components/attendance/Attendance";
 
 export const route = [
     {
@@ -565,16 +567,16 @@ export const route = [
         ele: <Payrolls />,
         permission: Permissions.MANAGE_EMPLOYEE,
     },
-    // {
-    //     path: "department",
-    //     ele: <Department />,
-    //     permission: Permissions.MANAGE_EMPLOYEE,
-    // },
-    // {
-    //     path: "attendance",
-    //     ele: <Employee />,
-    //     permission: Permissions.MANAGE_EMPLOYEE,
-    // },
+    {
+        path: "department",
+        ele: <Department />,
+        permission: Permissions.MANAGE_EMPLOYEE,
+    },
+    {
+        path: "attendance",
+        ele: <Attendance />,
+        permission: Permissions.MANAGE_EMPLOYEE,
+    },
     // {
     //     path: "leaves",
     //     ele: <Employee />,

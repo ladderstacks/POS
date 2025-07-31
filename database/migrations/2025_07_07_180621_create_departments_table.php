@@ -10,9 +10,9 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Department name (e.g., HR, IT, Sales)
-            $table->text('description')->nullable(); // Optional description
-            $table->boolean('status')->default(true); // Active/Inactive status
+            $table->string('name')->unique();
+            $table->text('description')->nullable();
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

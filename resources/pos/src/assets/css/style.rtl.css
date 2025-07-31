@@ -54,7 +54,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #212529;
+  --bs-body-color: #fff;
   --bs-body-bg: #FFFFFF;
 }
 
@@ -2914,12 +2914,16 @@ textarea.form-control-lg {
   font-size: 1.25rem;
   border-radius: 0.938rem;
 }
+.main-product-details{
+    color: white;
+}
 
 .form-check {
   display: block;
   min-height: 1.5rem;
   padding-right: 2.063em;
   margin-bottom: 0.125rem;
+  color: #000;
 }
 .form-check .form-check-input {
   float: right;
@@ -5034,8 +5038,9 @@ textarea.form-control-lg {
 .card-header {
   padding: 1.75rem 1.75rem;
   margin-bottom: 0;
-  background-color: #FFFFFF;
+  background-color: #000;
   border-bottom: 0 solid rgba(6, 9, 23, 0.125);
+  color: #FFFFFF;
 }
 .card-header:first-child {
   border-radius: 0.625rem 0.625rem 0 0;
@@ -5043,8 +5048,9 @@ textarea.form-control-lg {
 
 .card-footer {
   padding: 1.75rem 1.75rem;
-  background-color: #FFFFFF;
+  background-color: #000;
   border-top: 0 solid rgba(6, 9, 23, 0.125);
+  color: #FFFFFF;
 }
 .card-footer:last-child {
   border-radius: 0 0 0.625rem 0.625rem;
@@ -6045,6 +6051,8 @@ textarea.form-control-lg {
   border-bottom: 0 solid #DEE2E6;
   border-top-right-radius: 0.625rem;
   border-top-left-radius: 0.625rem;
+  color: #fff;
+  background-color: black;
 }
 .modal-header .btn-close {
   padding: 0.9375rem 0.9375rem;

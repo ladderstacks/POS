@@ -1,7 +1,7 @@
 import React, {useState, createRef, useEffect} from 'react';
 import {connect, useSelector} from 'react-redux';
 import {Form, Modal} from 'react-bootstrap-v5';
-import { editDepartment, addDepartment, fetchDepartments, fetchDepartment, fetchDepartmentFromData } from '../../store/action/departmentActions';
+import { editDepartment, addDepartment, fetchDepartments, fetchDepartment } from "../../store/action/departmentActions";
 import user from '../../assets/images/brand_logo.png';
 import {getFormattedMessage} from '../../shared/sharedMethod';
 import {placeholderText} from '../../shared/sharedMethod';
@@ -12,87 +12,45 @@ import { apiBaseURL } from '../../constants';
 import { addToast } from '../../store/action/toastAction';
 
 const DepartmentForm = (props) => {
-    const {handleClose, show, title, addDepartment, editDepartment, singleDepartment, fetchDepartmentFromData} = props;
+    const {handleClose, show, title, addDepartment, editDepartment, singleDepartment} = props;
     const innerRef = createRef();
-    const departmentEmployees = useSelector(state => state.departmentEmployees)
-    const departmentBankAccounts = useSelector(state => state.departmentBankAccounts)
 
-    const paymentMethodTypes = [
+    const statusTypes = [
         {
-            value: 'Bank Transfer',
-            label: 'Bank Transfer'
+            label: "Active",
+            value: 1,
         },
         {
-            value: 'Check',
-            label: 'Check'
-        }
-    ]
-    const benefitEnrollmentTypes = [
-        {
-            value: 'Health Insurance',
-            label: 'Health Insurance'
-        },
-        {
-            value: 'Retirement',
-            label: 'Retirement'
+            label: "Inactive",
+            value: 0,
         }
     ]
 
     const [formValue, setFormValue] = useState({
-        employee_id: singleDepartment ? singleDepartment.employee_id : '',
-        basic_salary: singleDepartment ? singleDepartment.basic_salary : '',
-        bank_account_id: singleDepartment ? singleDepartment.bank_account_id : '',
-        tax_identification_number: singleDepartment ? singleDepartment.tax_identification_number : '',
-        payment_method: singleDepartment && singleDepartment.payment_method ?  paymentMethodTypes.find(x => x.value == singleDepartment.payment_method): '',
-        benefits: singleDepartment && singleDepartment.benefits ? benefitEnrollmentTypes.find(x => x.value == singleDepartment.benefits) : '',
+        name: singleDepartment ? singleDepartment.name : '',
+        description: singleDepartment ? singleDepartment.description : '',
+        status: singleDepartment ? statusTypes.find(x => x.value == singleDepartment.status) : '',
     });
 
-    useEffect(()=> {
-        fetchDepartmentFromData();
-        setFormValue({
-            ...formValue,
-            employee_id: (singleDepartment ? (singleDepartment.employee_id ? departmentEmployees.find(x => x.value == singleDepartment.employee_id) : '') : ''),
-            bank_account_id: (singleDepartment ? (singleDepartment.bank_account_id ? departmentBankAccounts.find(x => x.value == singleDepartment.bank_account_id) : '') : ''),
-        });
-    }, [])
-
     const [errors, setErrors] = useState({
-        employee_id: '',
-        basic_salary: '',
-        bank_account_id: '',
-        tax_identification_number: '',
-        payment_method: '',
-        benefits: '',
+        name: '',
+        description: '',
+        status: '',
     });
 
     const handleValidation = () => {
         let errorss = {};
         let isValid = false;
-        if (!formValue['employee_id']) {
-            errorss['employee_id'] = getFormattedMessage('department.input.employee.validate.empty');
+        if (!formValue['name']) {
+            errorss['name'] = getFormattedMessage('department.input.name.validate.empty');
         }
 
-        if (!formValue['basic_salary'].trim()) {
-            errorss['basic_salary'] = getFormattedMessage('department.input.basic_salary.validate.empty');
-        }
-        if (formValue['basic_salary'].trim() && !(/^\d+(\.\d{2})?$/.test(formValue['basic_salary'].trim()))) {
-            errorss['basic_salary'] = getFormattedMessage('department.input.basic_salary.validate.invalid');
+        if (!formValue['description'].trim()) {
+            errorss['description'] = getFormattedMessage('department.input.description.validate.empty');
         }
 
-        if (!formValue['bank_account_id']) {
-            errorss['bank_account_id'] = getFormattedMessage('department.input.bank_account.validate.empty');
-        }
-
-        if (!formValue['tax_identification_number'].trim()) {
-            errorss['tax_identification_number'] = getFormattedMessage('department.input.tax_identification_number.validate.empty');
-        }
-
-        if (!formValue['payment_method']) {
-            errorss['payment_method'] = getFormattedMessage('department.input.payment_method.validate.empty');
-        }
-
-        if (!formValue['benefits']) {
-            errorss['benefits'] = getFormattedMessage('department.input.benefits.validate.empty');
+        if (!formValue['status']) {
+            errorss['status'] = getFormattedMessage('department.input.status.validate.empty');
         }
 
         setErrors(errorss);
@@ -110,7 +68,7 @@ const DepartmentForm = (props) => {
     const prepareFormData = (data) => {
         const formData = new FormData();
         for(let name in data){
-            formData.append(name, ['employee_id', 'bank_account_id', 'payment_method', 'benefits'].includes(name) ? (data[name].value ?? '') : data[name]);
+            formData.append(name, ['status'].includes(name) ? data[name].value : data[name]);
         }
         return formData;
     };
@@ -134,44 +92,12 @@ const DepartmentForm = (props) => {
 
     const clearField = () => {
         setFormValue({
-            employee_id: '',
-            basic_salary: '',
-            bank_account_id: '',
-            tax_identification_number: '',
-            payment_method: '',
-            benefits: '',
+            name: '',
+            description: '',
+            status: '',
         })
         setErrors('');
         handleClose(false);
-    };
-
-    const employeeChange = (value) => {
-        setFormValue((formValue) => ({
-            ...formValue,
-            employee_id: value,
-        }));
-        setErrors({});
-    };
-    const bankaccountChange = (value) => {
-        setFormValue((formValue) => ({
-            ...formValue,
-            bank_account_id: value,
-        }));
-        setErrors({});
-    };
-    const benefitsChange = (value) => {
-        setFormValue((formValue) => ({
-            ...formValue,
-            benefits: value,
-        }));
-        setErrors({});
-    };
-    const payemntmethodChange = (value) => {
-        setFormValue((formValue) => ({
-            ...formValue,
-            payment_method: value,
-        }));
-        setErrors({});
     };
 
     return (
@@ -181,7 +107,6 @@ const DepartmentForm = (props) => {
                onShow={() => setTimeout(() => {
                 //    innerRef.current.focus();
                }, 1)}
-               dialogClassName='modal-lg'
         >
             <Form onKeyPress={(e) => {
                 if (e.key === 'Enter') {
@@ -193,116 +118,48 @@ const DepartmentForm = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='row'>
-                        <div className='col-md-6 mb-5'>
-                            <ReactSelect
-                                title={getFormattedMessage(
-                                    "department.input.employee.label"
-                                )}
-                                placeholder={placeholderText(
-                                    "department.placeholder.employee.label"
-                                )}
-                                defaultValue={
-                                    formValue.employee_id
-                                }
-                                value={
-                                    formValue.employee_id
-                                }
-                                data={departmentEmployees ?? []}
-                                onChange={employeeChange}
-                                errors={
-                                    errors["employee_id"]
-                                }
-                            />
-                        </div>
-                        <div className='col-md-6 mb-5'>
+                        <div className='col-md-12 mb-5'>
                             <label
-                                className='form-label'>{getFormattedMessage('department.input.basic_salary.label')}: </label>
+                                className='form-label'>{getFormattedMessage('department.input.name.label')}: </label>
                             <span className='required'/>
-                            <input type='text' name='basic_salary' autoComplete='off'
-                                   placeholder={placeholderText('department.placeholder.basic_salary.label')}
-                                   className='form-control' ref={innerRef} value={formValue.basic_salary}
+                            <input type='text' name='name' autoComplete='off'
+                                   placeholder={placeholderText('department.placeholder.name.label')}
+                                   className='form-control' ref={innerRef} value={formValue.name}
                                    onChange={(e) => onChangeInput(e)}/>
                             <span className='text-danger d-block fw-400 fs-small mt-2'>
-                                        {errors['basic_salary'] ? errors['basic_salary'] : null}
+                                        {errors['name'] ? errors['name'] : null}
                                 </span>
                         </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-md-6 mb-5'>
-                            <ReactSelect
-                                title={getFormattedMessage(
-                                    "department.input.bank_account.label"
-                                )}
-                                placeholder={placeholderText(
-                                    "department.placeholder.bank_account.label"
-                                )}
-                                defaultValue={
-                                    formValue.bank_account_id
-                                }
-                                value={
-                                    formValue.bank_account_id
-                                }
-                                data={departmentBankAccounts ?? []}
-                                onChange={bankaccountChange}
-                                errors={
-                                    errors["bank_account_id"]
-                                }
-                            />
-                        </div>
-                        <div className='col-md-6 mb-5'>
+                        <div className='col-md-12 mb-5'>
                             <label
-                                className='form-label'>{getFormattedMessage('department.input.tax_identification_number.label')}: </label>
+                                className='form-label'>{getFormattedMessage('department.input.description.label')}: </label>
                             <span className='required'/>
-                            <input type='text' name='tax_identification_number' autoComplete='off'
-                                   placeholder={placeholderText('department.placeholder.tax_identification_number.label')}
-                                   className='form-control' ref={innerRef} value={formValue.tax_identification_number}
-                                   onChange={(e) => onChangeInput(e)}/>
+                            <textarea type='text' name='description' autoComplete='off'
+                                    placeholder={placeholderText('department.placeholder.description.label')}
+                                    className='form-control'
+                                    onChange={(e) => onChangeInput(e)} defaultValue={formValue.description}></textarea>
                             <span className='text-danger d-block fw-400 fs-small mt-2'>
-                                        {errors['tax_identification_number'] ? errors['tax_identification_number'] : null}
+                                        {errors['description'] ? errors['description'] : null}
                                 </span>
                         </div>
-                    </div>
-
-                    <div className='row'>
-                        <div className='col-md-6 mb-5'>
+                        <div className='col-md-12 mb-5'>
                             <ReactSelect
                                 title={getFormattedMessage(
-                                    "department.input.payment_method.label"
+                                    "department.input.status.label"
                                 )}
                                 placeholder={placeholderText(
-                                    "department.placeholder.payment_method.label"
+                                    "department.placeholder.status.label"
                                 )}
                                 defaultValue={
-                                    formValue.payment_method
+                                    formValue.status
                                 }
                                 value={
-                                    formValue.payment_method
+                                    formValue.status
                                 }
-                                data={paymentMethodTypes ?? []}
-                                onChange={payemntmethodChange}
+                                data={statusTypes ?? []}
+                                onChange={status => setFormValue({...formValue, status: status})}
                                 errors={
-                                    errors["payment_method"]
-                                }
-                            />
-                        </div>
-                        <div className='col-md-6 mb-5'>
-                            <ReactSelect
-                                title={getFormattedMessage(
-                                    "department.input.benefits.label"
-                                )}
-                                placeholder={placeholderText(
-                                    "department.placeholder.benefits.label"
-                                )}
-                                defaultValue={
-                                    formValue.benefits
-                                }
-                                value={
-                                    formValue.benefits
-                                }
-                                data={benefitEnrollmentTypes ?? []}
-                                onChange={benefitsChange}
-                                errors={
-                                    errors["benefits"]
+                                    errors["status"]
                                 }
                             />
                         </div>
@@ -315,4 +172,4 @@ const DepartmentForm = (props) => {
     )
 };
 
-export default connect(null, {fetchDepartments, addDepartment, editDepartment, fetchDepartmentFromData})(DepartmentForm);
+export default connect(null, {fetchDepartments, addDepartment, editDepartment})(DepartmentForm);

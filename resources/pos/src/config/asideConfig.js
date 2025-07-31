@@ -33,13 +33,14 @@ import {
     faLayerGroup,
     faBank
 } from "@fortawesome/free-solid-svg-icons";
+import * as fa from "@fortawesome/free-solid-svg-icons"
 import { getFormattedMessage } from "../shared/sharedMethod";
 
 export default [
     {
         title: "dashboard.title",
         name: "dashboard",
-        fontIcon: <FontAwesomeIcon icon={faPieChart} />,
+        fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
         to: "/app/dashboard",
         class: "d-flex",
         permission: Permissions.MANAGE_DASHBOARD,
@@ -53,7 +54,7 @@ export default [
     {
         title: "products.title",
         name: "products",
-        fontIcon: <FontAwesomeIcon icon={faBoxes} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faShapes} />,
         to: "/app/products",
         class: "d-flex",
         is_submenu: "true",
@@ -131,7 +132,7 @@ export default [
     {
         title: "adjustments.title",
         name: "adjustments",
-        fontIcon: <FontAwesomeIcon icon={faMapLocation} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faPlusMinus} />,
         to: "/app/adjustments",
         class: "d-flex",
         permission: Permissions.MANAGE_ADJUSTMENTS,
@@ -145,7 +146,7 @@ export default [
     {
         title: "quotations.title",
         name: "quotations.title",
-        fontIcon: <FontAwesomeIcon icon={faBasketShopping} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faFileEdit} />,
         to: "/app/quotations",
         class: "d-flex",
         permission: Permissions.MANAGE_QUOTATION,
@@ -159,7 +160,7 @@ export default [
     {
         title: "purchases.title",
         name: "purchases",
-        fontIcon: <FontAwesomeIcon icon={faReceipt} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faFileInvoice} />,
         to: "/app/purchases",
         class: "d-flex",
         is_submenu: "true",
@@ -221,7 +222,7 @@ export default [
     {
         title: "transfers.title",
         name: "transfers",
-        fontIcon: <FontAwesomeIcon icon={faMapLocation} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faExchangeAlt} />,
         to: "/app/transfers",
         class: "d-flex",
         permission: Permissions.MANAGE_TRANSFERS,
@@ -235,7 +236,7 @@ export default [
     {
         title: "expenses.title",
         name: "expenses",
-        fontIcon: <FontAwesomeIcon icon={faMoneyBills} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faDonate} />,
         to: "/app/expenses",
         class: "d-flex",
         is_submenu: "true",
@@ -266,7 +267,7 @@ export default [
     {
         title: "pepole.title",
         name: "Pepoles",
-        fontIcon: <FontAwesomeIcon icon={faUser} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faUsers} />,
         to: "/app/suppliers",
         class: "d-flex",
         is_submenu: "true",
@@ -323,7 +324,7 @@ export default [
     {
         title: "employee.manage-title",
         name: "Employee",
-        fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faUserTie} />,
         to: "/app/employee",
         class: "d-flex",
         is_submenu: "true",
@@ -354,22 +355,22 @@ export default [
                 class: "d-flex",
                 permission: Permissions.MANAGE_EMPLOYEE,
             },
-            // {
-            //     title: "attendance.title",
-            //     name: "attendances",
-            //     fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
-            //     to: "/app/attendance",
-            //     class: "d-flex",
-            //     permission: Permissions.MANAGE_EMPLOYEE,
-            // },
-            // {
-            //     title: "leaves.title",
-            //     name: "leaves",
-            //     fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
-            //     to: "/app/leaves",
-            //     class: "d-flex",
-            //     permission: Permissions.MANAGE_EMPLOYEE,
-            // },
+            {
+                title: "attendance.title",
+                name: "attendances",
+                fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+                to: "/app/attendance",
+                class: "d-flex",
+                permission: Permissions.MANAGE_EMPLOYEE,
+            },
+            {
+                title: "department.title",
+                name: "department",
+                fontIcon: <FontAwesomeIcon icon={faUserGroup} />,
+                to: "/app/department",
+                class: "d-flex",
+                permission: Permissions.MANAGE_EMPLOYEE,
+            },
             // {
             //     title: "education.title",
             //     name: "education",
@@ -392,7 +393,7 @@ export default [
     {
         title: "roles.permissions.title",
         name: "roles",
-        fontIcon: <FontAwesomeIcon icon={faShieldHalved} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faUserLock} />,
         to: "/app/roles",
         class: "d-flex",
         permission: Permissions.MANAGE_ROLES,
@@ -406,7 +407,7 @@ export default [
     {
         title: "warehouse.title",
         name: "warehouse",
-        fontIcon: <FontAwesomeIcon icon={faHome} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faHouseChimneyWindow} />,
         to: "/app/warehouse",
         class: "d-flex",
         permission: Permissions.MANAGE_WAREHOUSES,
@@ -420,7 +421,7 @@ export default [
     {
         title: "reports.title",
         name: "reports",
-        fontIcon: <FontAwesomeIcon icon={faChartColumn} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faListCheck} />,
         to: "/app/report/report-warehouse",
         path: "/app/report/report-sale",
         stockPath: "/app/report/report-stock",
@@ -517,7 +518,7 @@ export default [
     {
         title: "currencies.title",
         name: "currencies",
-        fontIcon: <FontAwesomeIcon icon={faDollarSign} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faMoneyBillWave} />,
         to: "/app/currencies",
         class: "d-flex",
         permission: Permissions.MANAGE_CURRENCY,
@@ -531,7 +532,7 @@ export default [
     {
         title: "languages.title",
         name: "Languages",
-        fontIcon: <FontAwesomeIcon icon={faLanguage} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faGlobe} />,
         to: "/app/languages",
         class: "d-flex",
         permission: Permissions.MANAGE_LANGUAGES,
@@ -545,7 +546,7 @@ export default [
     {
         title: "template.title",
         name: "template",
-        fontIcon: <FontAwesomeIcon icon={faFile} />,
+        fontIcon: <FontAwesomeIcon icon={fa.faObjectUngroup} />,
         to: "/app/email-templates",
         class: "d-flex",
         is_submenu: "true",

@@ -7,6 +7,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Http\Resources\EmployeeCollection;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Country;
+use App\Models\Department;
 use App\Models\Employee;
 use App\Repositories\EmployeeRepository;
 use Illuminate\Http\Request;
@@ -95,8 +96,10 @@ class EmployeeController extends AppBaseController
     {
         $countries = Country::all();
         $employees = $request->id ? Employee::where('id', '!=', $request->id)->get() : Employee::all();
+        $departments = Department::where('status', 1)->get();
         $form_data = [
             'countries' => [],
+            'departments'=> [],
             'employees' => [
                 [
                     'value' => '',
@@ -114,6 +117,12 @@ class EmployeeController extends AppBaseController
             $form_data['employees'][] = [
                 'value' => $employee->id,
                 'label' => $employee->full_name,
+            ];
+        }
+        foreach($departments as $department){
+            $form_data['departments'][] = [
+                'value' => $department->id,
+                'label' => $department->name,
             ];
         }
         return response()->json(['message' => '', 'data' => $form_data]);

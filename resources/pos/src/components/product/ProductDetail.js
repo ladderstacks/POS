@@ -262,7 +262,7 @@ const ProductDetail = (props) => {
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="text-light">
                             {allProducts && allProducts.map((data, index) =>
 
                                 <tr key={index}>

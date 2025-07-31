@@ -139,19 +139,21 @@ const Header = (props) => {
                                 allConfigData?.open_register === true
                                     ?
                                     <button onClick={handleClickPOSBtn}
-                                        className='px-sm-3 px-2 d-flex text-decoration-none pos-button pos-button-highlight'>
-                                        {getFormattedMessage('header.pos.title')}
+                                        className='me-2 d-flex text-decoration-none pos-button-highlight'>
+                                        {/* {getFormattedMessage('header.pos.title')} */}
+                                        <img src="images/pos-image.png" style={{height: '42px', width: '45px'}} />
                                     </button>
                                     :
                                     <Link to='/app/pos'
-                                        className='px-sm-3 px-2 d-flex text-decoration-none pos-button pos-button-highlight'>
-                                        {getFormattedMessage('header.pos.title')}
+                                        className='me-2 d-flex text-decoration-none pos-button-highlight'>
+                                        {/* {getFormattedMessage('header.pos.title')} */}
+                                        <img src="images/pos-image.png" style={{height: '42px', width: '45px'}} />
                                     </Link>
                                 :
                                 ''
                             }
                         </li>
-                        {isFullscreen === true ?
+                        {/* {isFullscreen === true ?
                             <li className="px-sm-3 px-2" onClick={() => fullScreen()}>
                                 <FontAwesomeIcon icon={faMinimize} className='text-primary fs-2' />
                             </li>
@@ -159,7 +161,7 @@ const Header = (props) => {
                             <li className="px-sm-3 px-2" onClick={() => fullScreen()}>
                                 <FontAwesomeIcon icon={faMaximize} className='text-primary fs-2' />
                             </li>
-                        }
+                        } */}
                     </ul>
                     {/*<Dropdown className='d-flex align-items-stretch me-3'>*/}
                     {/*    <Dropdown.Toggle className='hide-arrow bg-transparent border-0 p-0 d-flex align-items-center'*/}

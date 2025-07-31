@@ -36,7 +36,7 @@ class Employee extends Model implements HasMedia, JsonResourceful
         'country_id',
         'hire_date',
         'job_title',
-        'department',
+        'department_id',
         'employment_type',
         'reporting_manager_id',
         'employee_status',
@@ -46,11 +46,16 @@ class Employee extends Model implements HasMedia, JsonResourceful
 
     public const PATH = '';
 
-    protected $appends = ['full_name'];
+    protected $appends = ['full_name', 'department_name'];
 
     public function getFullNameAttribute()
     {
         return $this->first_name. ' ' . $this->middle_name . ' '. $this->last_name;
+    }
+
+    public function getDepartmentNameAttribute()
+    {
+        return $this->department->name;
     }
 
     public static $rules = [
@@ -71,7 +76,7 @@ class Employee extends Model implements HasMedia, JsonResourceful
         'country_id' => 'required|bail',
         'hire_date' => 'required|bail',
         'job_title' => 'required|bail',
-        'department' => 'required|bail',
+        'department_id' => 'required|bail',
         'employment_type' => 'required|bail',
         'reporting_manager_id' => 'nullable|bail',
         'employee_status' => 'required|bail',
@@ -92,6 +97,10 @@ class Employee extends Model implements HasMedia, JsonResourceful
 
     public function reporting_manager(){
         return $this->belongsTo(Employee::class, 'reporting_manager_id', 'id');
+    }
+
+    public function department(){
+        return $this->belongsTo(Department::class, 'department_id', 'id');
     }
 
     public function prepareAttributes(): array
@@ -117,7 +126,8 @@ class Employee extends Model implements HasMedia, JsonResourceful
             'country_name' => $this->country->name,
             'hire_date' => $this->hire_date,
             'job_title' => $this->job_title,
-            'department' => $this->department,
+            'department_id' => $this->department_id,
+            'department_name' => $this->department->name,
             'employment_type' => $this->employment_type,
             'reporting_manager_id' => $this->reporting_manager_id,
             'reporting_manager_name' => $this->reporting_manager?->full_name ?? '',

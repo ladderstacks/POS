@@ -32,7 +32,7 @@ const EmployeeForm = (props) => {
             country_id: singleEmployee && singleEmployee.country_id ? employeeFormData.countries.find(x => x.value == singleEmployee.country_id) : '',
             hire_date: singleEmployee ? (new Date(singleEmployee.hire_date)).getTime() : '',
             job_title: singleEmployee ? singleEmployee.job_title : '',
-            department: singleEmployee ? singleEmployee.department : '',
+            department_id: singleEmployee && singleEmployee.department_id ? employeeFormData.departments.find(x => x.id = singleEmployee.department_id) : '',
             employment_type: singleEmployee && singleEmployee.employment_type ? {label:singleEmployee.employment_type, value: singleEmployee.employment_type} : '',
             reporting_manager_id: singleEmployee && singleEmployee.reporting_manager_id ? employeeFormData.employees.find(x => x.value == singleEmployee.reporting_manager_id) : '',
             employee_status: singleEmployee && singleEmployee.employee_status ? {label: singleEmployee.employee_status, value: singleEmployee.employee_status} : '',
@@ -114,7 +114,7 @@ const EmployeeForm = (props) => {
         country_id: "",
         hire_date: "",
         job_title: "",
-        department: "",
+        department_id: "",
         employment_type: "",
         reporting_manager_id: "",
         employee_status: "",
@@ -185,7 +185,7 @@ const EmployeeForm = (props) => {
         if (!formValue['job_title'].trim()){
             errorss['job_title'] = getFormattedMessage('employee.validation.empty.job_title')
         }
-        if (!formValue['department'].trim()){
+        if (!formValue['department_id']){
             errorss['department'] = getFormattedMessage('employee.validation.empty.department')
         }
         // if (!formValue['reporting_manager_id']){
@@ -224,7 +224,7 @@ const EmployeeForm = (props) => {
         const formData = new FormData();
         window.kkkk = data;
         for (let name in data) {
-            formData.append(name, ['gender', 'marital_status', 'reporting_manager_id', 'country_id', 'employment_type', 'employee_status'].includes(name) ? (data[name].value??'') : (data[name] instanceof Date || Number.isInteger(data[name]) ? moment(new Date(data[name])).format('YYYY-MM-DD') : (data[name] ?? '')));
+            formData.append(name, ['gender', 'marital_status', 'reporting_manager_id', 'country_id', 'employment_type', 'employee_status', 'department_id'].includes(name) ? (data[name].value??'') : (data[name] instanceof Date || Number.isInteger(data[name]) ? moment(new Date(data[name])).format('YYYY-MM-DD') : (data[name] ?? '')));
         }
         return formData;
     };
@@ -534,16 +534,22 @@ const EmployeeForm = (props) => {
                             </span>
                         </div>
                         <div className='col-md-4 mb-5'>
-                            <label
-                                className='form-label'>{getFormattedMessage('employee.label.department')}: </label>
-                                <span className='required' />
-                            <input type='text' name='department' autoComplete='off'
-                                placeholder={placeholderText('employee.placeholder.department')}
-                                className='form-control' value={formValue.department}
-                                onChange={(e) => onChangeInput(e)} />
-                            <span className='text-danger d-block fw-400 fs-small mt-2'>
-                                {errors['department'] ? errors['department'] : null}
-                            </span>
+                            <ReactSelect
+                                title={getFormattedMessage(
+                                    "employee.label.department"
+                                )}
+                                placeholder={placeholderText(
+                                    "employee.placeholder.department"
+                                )}
+                                value={
+                                    formValue.department_id
+                                }
+                                data={employeeFormData.departments ?? []}
+                                onChange={selected => {setFormValue({...formValue, department_id: selected})}}
+                                errors={
+                                    errors["department"]
+                                }
+                            />
                         </div>
                         <div className='col-md-4 mb-5'>
                             <ReactSelect

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect, useDispatch} from 'react-redux';
 import {Button} from 'react-bootstrap-v5';
-import {addPayroll} from '../../store/action/bankAccountActions';
+import { addPayroll } from '../../store/action/payrollActions';
 import {getFormattedMessage} from '../../shared/sharedMethod';
 import PayrollForm from './PayrollForm';
 import { Filters } from '../../constants';
