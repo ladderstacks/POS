@@ -127,7 +127,7 @@ class Employee extends Model implements HasMedia, JsonResourceful
             'hire_date' => $this->hire_date,
             'job_title' => $this->job_title,
             'department_id' => $this->department_id,
-            'department_name' => $this->department->name,
+            'department_name' => $this->department?->name ?? '',
             'employment_type' => $this->employment_type,
             'reporting_manager_id' => $this->reporting_manager_id,
             'reporting_manager_name' => $this->reporting_manager?->full_name ?? '',
