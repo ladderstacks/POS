@@ -3357,6 +3357,8 @@ div .rdt_Pagination div:first-of-type svg {
   page-break-after: always;
   padding: 0.1in;
   width: 8.25in;
+  background: white;
+  color: black;
 }
 .barcode-main__barcode-item {
   border: 1px dotted #ccc;
