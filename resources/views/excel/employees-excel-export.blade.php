@@ -61,7 +61,7 @@
             <td>{{$employee->country?->name ?? ""}}</td>
             <td>{{$employee->hire_date}}</td>
             <td>{{$employee->job_title}}</td>
-            <td>{{$employee->department}}</td>
+            <td>{{$employee->department?->name ?? ""}}</td>
             <td>{{$employee->employment_type}}</td>
             <td>{{$employee->reporting_manager}}</td>
             <td>{{$employee->employee_status}}</td>
