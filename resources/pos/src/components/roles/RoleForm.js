@@ -109,7 +109,7 @@ const RoleForm = (props) => {
     };
 
     return (
-        <div className='container-fluid pt-10'>
+        <div className='container-fluid pt-10 role-form'>
             <div className='card custom-card p-5 bg-white'>
                 <Form className='m-4'>
                     <div className='row'>

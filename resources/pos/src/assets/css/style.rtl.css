@@ -2925,6 +2925,9 @@ textarea.form-control-lg {
   margin-bottom: 0.125rem;
   color: #ffffff;
 }
+.role-form .form-check{
+    color: #000000;
+}
 .form-check .form-check-input {
   float: right;
   margin-right: -2.063em;
