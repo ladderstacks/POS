@@ -81,7 +81,7 @@ class PrintButton extends React.PureComponent {
         }
 
         return (
-            <div className="p-4">
+            <div className="p-4 bg-white text-black">
                 {print.products &&
                     print.products.map((product, index) => {
                         return printFunction(product, index);

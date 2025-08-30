@@ -17282,3 +17282,10 @@ ul {
 .pricing-plan-btn {
   min-width: 120px;
 }
+@media print {
+  /* All your print styles go here */
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+}
