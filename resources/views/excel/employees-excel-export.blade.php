@@ -58,7 +58,7 @@
             <td>{{$employee->alternate_phone_number}}</td>
             <td>{{$employee->emargency_contact_name}}</td>
             <td>{{$employee->address}}</td>
-            <td>{{$employee->country->name}}</td>
+            <td>{{$employee->country?->name ?? ""}}</td>
             <td>{{$employee->hire_date}}</td>
             <td>{{$employee->job_title}}</td>
             <td>{{$employee->department}}</td>
