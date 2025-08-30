@@ -55,7 +55,7 @@ class Employee extends Model implements HasMedia, JsonResourceful
 
     public function getDepartmentNameAttribute()
     {
-        return $this->department->name;
+        return $this->department?->name ?? "";
     }
 
     public static $rules = [
