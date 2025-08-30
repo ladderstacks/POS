@@ -102,8 +102,8 @@ const Login = () => {
 
     return (
         <>
-            <div className="content bg-white d-flex h-100" style={{ backgroundColor: 'transparent center no-repeat', backgroundSize: '100%' }}>
-                <div className="" style={{ flexGrow: 1 }}>
+            <div className="content bg-white d-flex h-100 align-items-stretch align-items-sm-stretch align-items-md-center align-items-lg-stretch" style={{ backgroundColor: 'transparent center no-repeat', backgroundSize: '100%' }}>
+                <div className="d-none d-lg-flex" style={{ flexGrow: 1 }}>
                     <div className="h-100 text-center d-flex justify-content-center align-items-center">
                         <Image src="images/il-3.jpg" style={{ maxWidth: '700px' }} />
                     </div>
@@ -112,7 +112,7 @@ const Login = () => {
                     <div className="d-flex align-items-center flex-column h-100 justify-content-center align-items-stretch">
                         <a href="#" className="text-center d-block">
                             <Image
-                                className="logo-height image"
+                                className="logo-height"
                                 src={frontSetting &&
                                     frontSetting.value &&
                                     frontSetting.value.logo} alt=" " />
