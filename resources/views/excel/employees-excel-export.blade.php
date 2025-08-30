@@ -63,7 +63,7 @@
             <td>{{$employee->job_title}}</td>
             <td>{{$employee->department?->name ?? ""}}</td>
             <td>{{$employee->employment_type}}</td>
-            <td>{{$employee->reporting_manager}}</td>
+            <td>{{$employee->reporting_manager?->name ?? ""}}</td>
             <td>{{$employee->employee_status}}</td>
             <td>{{$employee->termination_date}}</td>
             <td>{{$employee->exit_reason}}</td>
