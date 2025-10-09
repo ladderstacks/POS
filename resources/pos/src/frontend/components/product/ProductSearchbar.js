@@ -27,7 +27,7 @@ const ProductSearchbar = (props) => {
     const [keyDown, setKeyDown] = useState(false);
     const dispatch = useDispatch();
     const [play] = useSound(
-        "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+        "audio/Heater-4_1.mp3"
     );
     const filterProduct = posAllProducts
         .filter((qty) => qty.attributes.stock.quantity > 0)

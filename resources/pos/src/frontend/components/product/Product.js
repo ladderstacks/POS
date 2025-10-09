@@ -29,7 +29,7 @@ const Product = (props) => {
     } = props;
     const [updateProducts, setUpdateProducts] = useState([]);
     const [play] = useSound(
-        "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+        "audio/Heater-4_1.mp3"
     );
     const dispatch = useDispatch();
 
